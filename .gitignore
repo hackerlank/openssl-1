@@ -1,0 +1,8 @@
+/*.swp
+/*.*~
+/openssl-*
+/src
+
+!openssl-1.0.2g.tar.gz
+
+mk_svn.bat
