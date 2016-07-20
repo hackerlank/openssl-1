@@ -3,6 +3,6 @@
 /openssl-*
 /src
 
-!openssl-1.0.2g.tar.gz
+!openssl-1.0.2h.tar.gz
 
 mk_svn.bat
