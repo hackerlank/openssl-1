@@ -2,8 +2,23 @@
 这个没什么好说的，直接运行msi即可。
 编译OpenSSL
 1.使用Visual Studio Tool中的“VS2013 x64 本机工具命令提示”来打开控制台；也可以打开一个控制台，然后进到“安装路径\Microsoft Visual Studio 12.0\VC\bin\amd64\“中运行vcvars64.bat；
-2.解压下载下来的openssl的压缩包，进入解压文件夹，输入命令：perl Configure VC-WIN64A；
-3.输入命令ms\do_win64a；
-4.输入命令nmake –f ms\nt.mak开始编译，如需要dll则命令为nmake –f ms\ntdll.mak（如果前面没有配置好发现使用了32bit的nmake，可使用绝对路径使用“安装路径\Microsoft Visual Studio 12.0\VC\bin\amd64\nmake.exe”）；
-5.如编译成功，可使用nmake –f ms\nt.mak test来测试。
-PS：如果需要编译32bit的，第一步使用x86的控制台，二三步中改为VC-WIN32和ms\do_ms。
+2.解压下载下来的openssl的压缩包，进入解压文件夹，输入命令：perl Configure VC-WIN64A
+3.输入命令ms\do_win64a
+4.输入命令nmake -f ms\nt.mak开始编译，如需要dll则命令为nmake -f ms\ntdll.mak（如果前面没有配置好发现使用了32bit的nmake，可使用绝对路径使用“安装路径\Microsoft Visual Studio 12.0\VC\bin\amd64\nmake.exe”）；
+5.如编译成功，可使用nmake -f ms\nt.mak test来测试。
+PS：如果需要编译32bit的，第一步使用x86的控制台，二三步中改为VC-WIN32和ms\do_ms
+
+inclue目录在inc32
+
+
+perl Configure VC-WIN64A
+ms\do_win64a
+nmake -f ms\nt.mak
+
+rename inc32 inc64
+rename out32 out64
+
+nmake -f ms\nt.mak clean
+perl Configure VC-WIN32 no-asm
+ms\do_ms
+nmake -f ms\nt.mak
